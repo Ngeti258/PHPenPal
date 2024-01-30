@@ -25,9 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         // Store plain text password in a session variable
         $_SESSION['plain_text_password'] = $Password;
 
-        // Insert username into 'articles' table
-        $username_to_articles_query = "INSERT INTO articles (author_username) VALUES ('$UserName')";
-        mysqli_query($con, $username_to_articles_query);
 
         // Insert user details into 'users' table
         $insert_user_query = "INSERT INTO users (user_name, email, password) VALUES ('$UserName', '$Email', '$Password')";
@@ -76,14 +73,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
 
         .form-content .Title {
-            font-size: 40px;
-            margin-top: 60px;
+            font-size: 35px;
+            margin-top: 35px;
             margin-bottom: 60px;
             text-align: center;
         }
 
         .form-content .inputs {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-align: center;
         }
 
@@ -137,9 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <div class="form-content">
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
             <div class="Title">REGISTER</div>
-            <br>
-            <!-- Add error message display -->
-
+            
             <div class="inputs">
                 <input type="text" name="UserName" placeholder="Enter username" required>
             </div>
